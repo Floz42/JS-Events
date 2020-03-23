@@ -1,0 +1,11 @@
+<div class="container-fluid" id="slider_container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in images %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <img class="d-block w-100" src="{{ image.image }}" alt="Third slide">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

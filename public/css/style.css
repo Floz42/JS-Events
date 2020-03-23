@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../fonts/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gayathri-Bold';
+    src: url('../fonts/Gayathri-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gayathri-Regular';
+    src: url('../fonts/Gayathri-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gayathri-Thin';
+    src: url('../fonts/Gayathri-Thin.ttf') format('truetype');
+}
+   
+/***************** GENERAL *********************/
+
+html {
+    width: 100%;
+}
+
+body {
+    font-family: 'Roboto-Regular' !important;
+    font-size: 1em;
+    width: 100%;
+    margin: 0;
+}
+
+#slider_container{
+    padding: 0 !important;
+}
+
+footer {
+    bottom: 0;
+}
+
+.avatar_mini {
+    width: 124px;
+    height: 124px;
+}
+
+/***************** NAVBAR *********************/
+
+.logo_navbar {
+    width: 80px;
+    height: auto;
+}
+
+nav div li a {
+    font-size: 1.5em;
+    padding: 1em;
+    border-bottom: 2px solid transparent;
+
+}
+nav div li a:hover {
+    color: #5cadd3 !important;
+    border-bottom: 2px solid #5cadd3;
+    animation: rebound_link 0.5s ease;
+}
+
+.nav-link:focus {
+    color: #5cadd3 !important;
+}
+
+@keyframes rebound_link {
+    from {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    70% {
+        transform: translateY(5px);
+    }
+    to {
+        transform: translateY(-5px);
+    }
+}
+
