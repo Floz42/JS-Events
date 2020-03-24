@@ -1,0 +1,15 @@
+<section id="introduce" class="container-fluid mt-3 p-5">
+    <div class="col-8 col-xs-6 mx-auto">
+        <div class="row mx-auto text-center">
+            <h1 class="title mx-auto">PRÉSENTATION, QUI SOMMES-NOUS ? </h1>
+            {% include 'partials/_separator_white.html.twig' %}
+        </div>
+        <div class="card mb-3 bg-light" id="card_introduce">
+            <img class="card-header avatar_medium mx-auto bg-info mt-2" src="{{ asset('images/' ~ introduceOwner.picture )}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Le mot du dirigeant : {{ introduceOwner.firstname }} {{ introduceOwner.lastname }} </h5>
+                    <p class="card-text"><i>{{ introduceOwner.description }}</i></p>
+            </div>
+        </div>
+    </div>
+</section>

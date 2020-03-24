@@ -50,19 +50,76 @@ footer {
 }
 
 .avatar_mini {
-    width: 124px;
-    height: 124px;
+    width: 80px;
+    height: 80px;
 }
 
+.avatar_medium {
+    width: 250px;
+    height: auto;
+    border-radius: 50% !important;
+}
+
+.title {
+   color: white;
+   font-family: "Roboto-bold";
+}
+
+.title_blue {
+    color: #5cadd3;
+    font-family: "Roboto-bold";
+    margin-bottom: 0 !important;
+ }
+
+ /***************** GENERAL - SEPARATOR *********************/
+
+ .separator {
+     display: flex; 
+     align-items: center;
+ }
+ .line {
+     width: 5em;
+     height: 0.1em;
+     background-color: silver;
+ }
+ .round {
+     width: 1em;
+     height: 1em;
+     border-radius: 50%;
+     background-color: #5cadd3;
+     border: 2px solid transparent;
+     margin-left: 0.2em;
+     margin-right: 0.2em;
+ }
+
+ .round_white {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid transparent;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+
 /***************** NAVBAR *********************/
+#nav_desktop {
+    position: fixed !important;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+}
+#nav_md_xs {
+    display: none;
+}
 
 .logo_navbar {
-    width: 80px;
+    width: 120px;
     height: auto;
 }
 
 nav div li a {
-    font-size: 1.5em;
     padding: 1em;
     border-bottom: 2px solid transparent;
 
@@ -90,5 +147,24 @@ nav div li a:hover {
     to {
         transform: translateY(-5px);
     }
+}
+
+/***************** SLIDER *********************/
+
+#slider {
+    margin-top: 130px;
+}
+
+/***************** INTRODUCE *********************/
+
+#introduce {
+    background-color: #5cadd3;
+}
+
+/***************** NEWS *********************/
+
+#all_news {
+    height: 300px; 
+    overflow: auto;
 }
 

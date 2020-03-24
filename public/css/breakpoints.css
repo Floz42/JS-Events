@@ -1,0 +1,8 @@
+@media all and (max-width: 769px) {
+    #nav_desktop {
+        display: none;
+    }
+    #nav_md_xs {
+        display: flex;
+    }
+}
