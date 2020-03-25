@@ -27,6 +27,11 @@
     font-family: 'Gayathri-Thin';
     src: url('../fonts/Gayathri-Thin.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'Aubrey';
+    src: url('../fonts/walkwatbold.ttf');
+}
    
 /***************** GENERAL *********************/
 
@@ -41,8 +46,8 @@ body {
     margin: 0;
 }
 
-#slider_container{
-    padding: 0 !important;
+h1 {
+    font-family: 'Aubrey' !important;
 }
 
 footer {
@@ -69,6 +74,20 @@ footer {
     color: #5cadd3;
     font-family: "Roboto-bold";
     margin-bottom: 0 !important;
+ }
+
+ .fa-arrow-circle-down:hover {
+     color: #5cadd3;
+     cursor: pointer;
+ }
+
+ @keyframes height_div {
+     from {
+         transform: scaleY(0);
+     }
+     to {
+         transform: scaleY(1);
+     }
  }
 
  /***************** GENERAL - SEPARATOR *********************/
@@ -151,13 +170,18 @@ nav div li a:hover {
 
 /***************** SLIDER *********************/
 
+
+#slider_container{
+    padding: 0 !important;
+}
+
 #slider {
     margin-top: 130px;
 }
 
 /***************** INTRODUCE *********************/
 
-#introduce {
+#introduce, #deliveries {
     background-color: #5cadd3;
 }
 
@@ -168,3 +192,9 @@ nav div li a:hover {
     overflow: auto;
 }
 
+/***************** DELIVERIES *********************/
+
+.delivery_options {
+    display: none;
+    animation: height_div 0.5s forwards;
+}

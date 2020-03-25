@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\IntroduceOwner;
+use App\Repository\DeliveryRepository;
 use App\Repository\ImageSliderRepository;
 use App\Repository\IntroduceOwnerRepository;
 use App\Repository\IntroduceRepository;
@@ -17,16 +18,18 @@ class MainController extends AbstractController
      * 
      * @Route("/", name="accueil")
      */
-    public function index(ImageSliderRepository $sliderRepo, IntroduceRepository $introduceRepo, IntroduceOwnerRepository $introduceOwnerRepo, NewsRepository $newsRepo)
+    public function index(ImageSliderRepository $sliderRepo, IntroduceOwnerRepository $introduceOwnerRepo, NewsRepository $newsRepo, DeliveryRepository $deliveryRepo)
     {
         $slider_images = $sliderRepo->findAll();
-        $introduceOwner = $introduceOwnerRepo->find(5);
+        $introduceOwner = $introduceOwnerRepo->find(2);
         $news = $newsRepo->findAll();
+        $deliveries = $deliveryRepo->findAll();
 
         return $this->render('base.html.twig', [
             'images' => $slider_images,
             'introduceOwner' => $introduceOwner,
-            'news' => $news
+            'news' => $news,
+            'deliveries' => $deliveries
         ]);
     }
 

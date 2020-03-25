@@ -49,7 +49,7 @@ class AppFixtures extends Fixture
             $delivery = new Delivery();
             $delivery->setPicture($faker->imageUrl(250,100))
                      ->setTitle($faker->sentence(5))
-                     ->setOptions([$faker->sentence(6), $faker->sentence(5), $faker->sentence(8) ])
+                     ->setOptions([$faker->sentence(5), $faker->sentence(5), $faker->sentence(8)])
                      ->setPrice(mt_rand(300,600));
             $manager->persist($delivery);
         }
