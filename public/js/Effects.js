@@ -33,4 +33,19 @@ export default class Effects {
         )
     }
 
+    show_ratingForm() {
+        let show = false;
+        $('.rating_button').click(() => {
+            show = (!show) ? true : false;
+            if (show) {
+                $('.form_rating').show('slow');
+                $('#ratings').hide('slow');
+            } else {
+                $('.form_rating').hide('slow');
+                $('#ratings').show('slow');
+            }
+        })
+    };
+    
+
 }

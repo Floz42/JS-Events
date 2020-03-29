@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\IntroduceOwnerRepository")
@@ -19,21 +20,25 @@ class IntroduceOwner
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $picture;
 

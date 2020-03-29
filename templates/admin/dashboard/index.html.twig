@@ -1,0 +1,85 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <h1 class="my-3 text-center">Bienvenue sur ton Dashboard !</h1>
+    <div class="container">
+        <div class="row">
+            <div class="dashboard_card col-md-5 col-xs-12">
+                <div class="card bg-success text-white my-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <i class="far fa-images fa-3x"></i>
+                                <h5 class="mt-3 card-title"> Il y a {{ stats.slider }} image(s) dans ton slider d'introduction.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard_card col-md-3 col-xs-12">
+                <div class="card bg-warning text-white my-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <i class="far fa-newspaper fa-3x"></i>
+                                <h5 class="mt-3 card-title"> Tu as posté {{ stats.news }} news.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard_card col-md-4 col-xs-12">
+                <div class="card bg-primary text-white my-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <i class="far fa-star fa-3x"></i>
+                                <h5 class="mt-3 card-title"> Les visiteurs ont posté {{ stats.ratings }} avis.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="dashboard_card col-md-4 col-xs-12">
+                <div class="card bg-danger text-white my-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <i class="fas fa-bomb fa-3x"></i>
+                                <h5 class="mt-3 card-title"> Tu as mis en place {{ stats.deliveries }} offre(s) pour tes clients/prospects.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard_card col-md-4 col-xs-12">
+                <div class="card bg-info text-white my-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <i class="fas fa-users fa-3x"></i>
+                                <h5 class="mt-3 card-title"> Il y a eut {{ stats.visitors }} visiteurs sur ton site.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard_card col-md-4 col-xs-12">
+                <div class="card bg-dark text-white my-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <i class="fas fa-user fa-3x"></i>
+                                <h5 class="mt-3 card-title"> Il y a eut {{ stats.uniqueVisitors }} visiteurs uniques sur ton site.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </div>
+{% endblock %}

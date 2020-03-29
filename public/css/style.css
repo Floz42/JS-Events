@@ -187,7 +187,7 @@ nav div li a:hover {
 
 /***************** NEWS *********************/
 
-#all_news {
+#all_news, #ratings {
     height: 300px; 
     overflow: auto;
 }
@@ -197,4 +197,18 @@ nav div li a:hover {
 .delivery_options {
     display: none;
     animation: height_div 0.5s forwards;
+}
+
+/***************** CONTACT *********************/
+
+#form_contact {
+    border: 1px solid #5cadd3;
+    border-radius: 25px;
+    padding: 1em;
+}
+
+/***************** RATING *********************/
+
+.gold_star {
+    color: goldenrod; 
 }

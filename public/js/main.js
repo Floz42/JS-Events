@@ -15,3 +15,5 @@ $(window).on('scroll', function() {
         effects.navbar_onScroll_top();
     }
 });
+$('.form_rating').hide();
+effects.show_ratingForm();

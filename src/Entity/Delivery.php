@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DeliveryRepository")
@@ -19,21 +20,25 @@ class Delivery
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $title;
 
     /**
      * @ORM\Column(type="array")
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $options = [];
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $price;
 

@@ -1,0 +1,32 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Images slider{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="my-3 text-center">Gestion des images du slider d'introduction</h1>
+        <table class="table table-striped col-md-8 col-xs-12 mx-auto">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for image in images %}
+                    <tr class="align-items-center">
+                        <td><img src="{{ image.image }}" alt="Image slider" class="image_slider"></td>
+                        <td class="text-center">
+                            <a href="" class="btn btn-primary">
+                                <i class="fas fa-pen" title="Modifier"></i>
+                            </a>
+                            <a href="{{ path('slider_delete', {'id': image.id })}}" class="btn btn-danger">
+                                <i class="fas fa-trash" title="Supprimer"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

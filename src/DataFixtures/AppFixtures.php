@@ -7,6 +7,7 @@ use App\Entity\ImageSlider;
 use App\Entity\Introduce;
 use App\Entity\IntroduceOwner;
 use App\Entity\News;
+use App\Entity\Rating;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
@@ -52,6 +53,17 @@ class AppFixtures extends Fixture
                      ->setOptions([$faker->sentence(5), $faker->sentence(5), $faker->sentence(8)])
                      ->setPrice(mt_rand(300,600));
             $manager->persist($delivery);
+        }
+
+        for($l=0;$l<=15;$l++) {
+            $rating = new Rating();
+            $rate = mt_rand(0,5);
+            $rating->setFirstname($faker->firstName())
+                   ->setLastname($faker->lastName())
+                   ->setRating($rate)
+                   ->setComment($faker->sentence(25))
+                   ->setEmail($faker->email());
+            $manager->persist($rating);
         }
 
         $manager->flush();
