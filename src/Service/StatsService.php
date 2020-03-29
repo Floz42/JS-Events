@@ -82,6 +82,11 @@ class StatsService
         return $contents;
     }
 
+    public function getAverageRatings()
+    {
+        return $this->manager->createQuery('SELECT AVG(r.rating) FROM App\Entity\Rating r')->getSingleScalarResult();
+    }
+
     /**
      * getStats -> return all stats in an array
      *
@@ -95,6 +100,7 @@ class StatsService
         $deliveries = $this->getDeliveriesCount();
         $visitors = $this->getVisitors("counterVisitors");
         $uniqueVisitors = $this->getVisitors("counterUniqueVisitors");
-        return compact('slider','news','ratings','deliveries','visitors','uniqueVisitors');
+        $averageRating = $this->getAverageRatings();
+        return compact('slider','news','ratings','deliveries','visitors','uniqueVisitors','averageRating');
     }
 }

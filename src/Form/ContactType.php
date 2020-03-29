@@ -25,8 +25,8 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstname', TypeTextType::class, $this->getOptions("Votre prénom :", "Entrez vos prénom ici", [ 'required' => true]))
-            ->add('lastname', TypeTextType::class, $this->getOptions("Votre nom :", "Entrez vos nom ici", [ 'required' => true]))
+            ->add('firstname', TypeTextType::class, $this->getOptions("Votre prénom :", "Entrez votre prénom ici", [ 'required' => true]))
+            ->add('lastname', TypeTextType::class, $this->getOptions("Votre nom :", "Entrez votre nom ici", [ 'required' => true]))
             ->add('email', EmailType::class, $this->getOptions("Votre e-mail :", "Exemple : cedric@hotmail.fr", [ 'required' => true]))
             ->add('title', TypeTextType::class, $this->getOptions("Titre de votre message :", "Votre titre ici", [ 'required' => true]))
             ->add('content', TextareaType::class, $this->getOptions("Votre message :", "", [ 'required' => true]))

@@ -54,7 +54,7 @@ class MainController extends AbstractController
         if ($form_rating->isSubmitted() && $form_rating->isValid()) {
             $manager->persist($rating);
             $manager->flush();
-            $this->addFlash('success', 'Merci, votre avis a été posté avec succès.');
+            $this->addFlash('success', 'Merci, votre avis à été posté avec succès.');
             return $this->redirectToRoute('accueil');
         } 
 
