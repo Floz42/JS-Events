@@ -3,6 +3,7 @@
 namespace App\Controller\admin;
 
 use App\Entity\ImageSlider;
+use App\Form\SliderType;
 use App\Repository\ImageSliderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,6 +38,20 @@ class SliderController extends AbstractController
             $image = new ImageSlider();
             $message = "Votre image a bien été ajoutée.";
         }
+
+        $form = $this->createForm(SliderType::class, $image);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager->persist($image);
+            $manager->flush();
+            $this->addFlash('success', $message);
+            return $this->redirectToRoute('slider_show');
+        }
+
+        return $this->render('admin/slider/addImage.html.twig',[
+            'form' => $form->createView(),
+            'exist' => $exist
+        ]);
     }
 
     /**
@@ -46,7 +61,7 @@ class SliderController extends AbstractController
     {
         $manager->remove($image);
         $manager->flush();
-        $this->addFlash('success','Votre image a bien été supprimée');
+        $this->addFlash('success','Votre image a bien été supprimée du slider.');
         return $this->redirectToRoute('slider_show');
     }
 }

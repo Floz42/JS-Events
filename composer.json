@@ -6,8 +6,10 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "friendsofsymfony/ckeditor-bundle": "^2.2",
         "fzaninotto/faker": "^1.9",
         "sensio/framework-extra-bundle": "^5.1",
+        "stfalcon/tinymce-bundle": "^2.5",
         "swiftmailer/swiftmailer": "^6.0",
         "symfony/asset": "4.4.*",
         "symfony/console": "4.4.*",
@@ -65,6 +67,7 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
+            "ckeditor:install --clear=drop": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [

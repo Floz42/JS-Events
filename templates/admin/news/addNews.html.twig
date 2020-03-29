@@ -1,0 +1,22 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Ajout/Modification d'une news{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1 class="my-3 text-center">
+        {% if exist %}
+            Modifier une news :
+        {% else %}
+            Ajouter une news : 
+        {% endif %}
+    </h1>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-success">Valider</button>
+            <a href="{{ path('news_show')}}" class="btn btn-danger">Annuler</a>
+        {{ form_end(form) }}
+    
+    </div>
+{{tinymce_init ()}}
+{% endblock %}

@@ -15,8 +15,8 @@
                             </p>
                             {% if new.picture %}
                                 <div class="row align-items-center">
-                                    <img src="{{ new.picture }}" alt="{{ new.title }}" class="col-4">
-                                    <p class="card-text text-justify col-8">{{ new.content }}</p>
+                                    <img src="{{ asset('images/news/' ~ new.picture) }}" alt="{{ new.title }}" class="col-4">
+                                    <div class="card-text text-justify col-8">{{ new.content | raw  }}</div>
                                 </div>
                             {% else %}
                                 <p class="card-text text-justify">{{ new.content }}</p>

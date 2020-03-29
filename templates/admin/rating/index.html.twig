@@ -1,0 +1,40 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Gestion des avis{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="my-3 text-center">Gestion des avis des clients :</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>E-mail</th>
+                    <th>Commentaire</th>
+                    <th>Note</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rating in ratings %}
+                    <tr>
+                        <td>{{ rating.firstname }}</td>
+                        <td>{{ rating.lastname }}</td>
+                        <td>{{ rating.email }}</td>
+                        <td>{{ rating.comment }}</td>
+                        <td>
+                            <span class="badge badge-success">{{ rating.rating }}</span>
+                        </td>
+                        <td>
+                            <a href="{{ path('rating_delete', {'id': rating.id})}}">
+                                <i class="fas fa-trash" title="Supprimer"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

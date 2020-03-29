@@ -1,0 +1,48 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des news{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="text-center my-3">Gestion des news du site</h1>
+        <a href="{{ path('news_add')}}" class="btn btn-success my-3">Ajouter</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <th>Titre</th>
+                    <th>Contenu</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for new in news %}
+                    <tr>
+                        <td>{{ new.id }}</td>
+                        <td>
+                            {% if new.picture %}
+                                <img src="{{ asset('images/news/' ~ new.picture)}}" alt="Image de {{ new.title }}" class="avatar_medium">
+                            {% else %}
+                                <span>Pas d'image pour cette news</span>
+                            {% endif %}
+                        </td>
+                        <td><div>{{ new.title }}</div></td>
+                        <td>{{ new.content | raw }}</td>
+                        <td class="text-center">
+                            <a href="{{ path('news_update', {'id': new.id })}}" class="mb-2 btn btn-primary">
+                                <i class="fas fa-pen" title="Modifier"></i>
+                            </a>
+                            <a href="{{ path('news_delete', {'id': new.id })}}" class="btn btn-danger">
+                                <i class="fas fa-trash" title="Supprimer"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+    </div>
+
+{% endblock %}

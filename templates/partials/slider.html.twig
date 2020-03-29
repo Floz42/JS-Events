@@ -3,7 +3,7 @@
         <div class="carousel-inner">
             {% for image in images %}
             <div class="carousel-item {% if loop.first %}active{% endif %}">
-                <img class="d-block w-100" src="{{ image.image }}" alt="Third slide">
+                <img class="image_slider d-block w-100" src="{{'/images/slider/' ~ image.image }}" alt="Image slider">
             </div>
             {% endfor %}
         </div>

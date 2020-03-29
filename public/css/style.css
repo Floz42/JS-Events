@@ -50,6 +50,10 @@ h1 {
     font-family: 'Aubrey' !important;
 }
 
+p {
+    font-family: 'Roboto-Regular' !important;
+}
+
 footer {
     bottom: 0;
 }
@@ -177,6 +181,10 @@ nav div li a:hover {
 
 #slider {
     margin-top: 130px;
+}
+
+.image_slider {
+    height: 500px;
 }
 
 /***************** INTRODUCE *********************/

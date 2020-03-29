@@ -19,13 +19,10 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{ path('dashboard')}}">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Présentation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">News</a>
+            <a class="nav-link" href="{{ path('news_show')}}">News</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Prestations</a>
@@ -34,9 +31,12 @@
             <a class="nav-link" href="{{ path('slider_show')}}">Slider</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Avis</a>
+            <a class="nav-link" href="{{ path('ratings_show') }}">Avis</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ path('ratings_show') }}">Présentation</a>
+          </li>
+          <li class="nav-item ml-5">
             <a class="nav-link" href="#">
               <i class="fas fa-undo"></i>
               Retour au site
@@ -58,7 +58,6 @@
         <div class="alert alert-danger col-8 mx-auto text-center my-2">{{ message }}</div>
     {% endfor %}
     {% block body %}{% endblock %}
-    {% include 'partials/footer.html.twig' %}
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>        
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
