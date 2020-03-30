@@ -1,0 +1,83 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Ajout/Modification d'une prestation {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center my-3">
+            {% if exist %}
+                Modification d'une prestation.
+            {% else %}
+                Ajout d'une prestation.        
+            {% endif %}
+        </h1>
+        <div class="col-md-8 col-xs-12 mx-auto">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-success my-3">
+                    <i class="fas fa-check"></i>
+                    Valider
+                </button>
+                <a href="{{ path('deliveries_show')}}" class="btn btn-danger">
+                    <i class="fas fa-reply"></i>
+                    Annuler
+                </a>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+
+    $("#delivery_optionDeliveries fieldset .form-group").each(function(){
+        $(this).addClass('d-flex');
+        $(this).append('<a href="" class="ml-2 delete_option btn btn-danger"><i class="fas fa-trash" title="Supprimer"></i></a>');
+        $(this).children('label').remove();
+    });
+
+    $("legend").each(function(){
+        if ($(this).text() != "Options :") {
+            $(this).remove();
+        }
+    })
+
+    function countOptions() {
+        let count = 0;
+        $("#delivery_optionDeliveries .form-group").each(function(){
+            count++
+        });
+        return count;
+    }
+    function redistributeName() {
+        for (let i = 0; i < countOptions(); i++){
+            let target = '#delivery_optionDeliveries .form-group input:eq(' + i + ')';
+            $(target).attr('name', "delivery[optionDeliveries][" + i + "][title]");
+            $(target).attr('id', "delivery_optionDeliveries_" + i + "_title");
+            $(target).parent().parent().attr('id', "delivery_optionDeliveries_" + i);
+        }
+    }
+
+    function onDelete() {
+        $('.delete_option').click(function(e) {
+            e.preventDefault();
+            $(this).parent().parent().parent().remove();
+            countOptions();
+            redistributeName();
+        })
+    }
+        countOptions();
+        onDelete();
+
+    let addOption = "<div id='addOption' class='mb-3 btn btn-success'><i class='fas fa-plus'></i>Ajouter une option</div>"
+    $('#delivery_optionDeliveries').append(addOption);
+    $('#addOption').click(function() {
+        let newInput = '<fieldset class="form-group"><div id="delivery_optionDeliveries_1"><div class="form-group d-flex"><input type="text" id="delivery_options_2" name="delivery[options][2]" required="required" class="form-control" value=""><a href="" class="ml-2 delete_option btn btn-danger"><i class="fas fa-trash" title="Supprimer"></i></a></div></div></fieldset>';
+        $('#delivery_optionDeliveries').append(newInput);
+        countOptions();
+        redistributeName();
+        onDelete();
+    })
+
+    
+
+    </script>
+{% endblock %}

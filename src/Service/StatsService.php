@@ -81,11 +81,37 @@ class StatsService
         fclose($handle);
         return $contents;
     }
-
+    
+    /**
+     * getAverageRatings -> get the average of all ratings
+     *
+     * @return number
+     */
     public function getAverageRatings()
     {
         return $this->manager->createQuery('SELECT AVG(r.rating) FROM App\Entity\Rating r')->getSingleScalarResult();
     }
+    
+    /**
+     * getBestRatings -> return array with five best ads
+     *
+     * @return array
+     */
+    public function getBestRatings()
+    {
+        return $this->manager->createQuery('SELECT r FROM App\Entity\Rating r ORDER BY r.rating DESC')->setMaxResults(5)->getArrayResult();
+    }
+
+    /**
+     * getBestRatings -> return array with five worst ads
+     *
+     * @return array
+     */
+    public function getWorstRatings()
+    {
+        return $this->manager->createQuery('SELECT r FROM App\Entity\Rating r ORDER BY r.rating ASC')->setMaxResults(5)->getArrayResult();
+    }
+
 
     /**
      * getStats -> return all stats in an array
@@ -101,6 +127,8 @@ class StatsService
         $visitors = $this->getVisitors("counterVisitors");
         $uniqueVisitors = $this->getVisitors("counterUniqueVisitors");
         $averageRating = $this->getAverageRatings();
-        return compact('slider','news','ratings','deliveries','visitors','uniqueVisitors','averageRating');
+        $bestRatings = $this->getBestRatings();
+        $worstRatings = $this->getWorstRatings();
+        return compact('slider','news','ratings','deliveries','visitors','uniqueVisitors','averageRating','bestRatings','worstRatings');
     }
 }

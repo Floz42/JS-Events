@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -32,7 +34,6 @@ class Delivery
 
     /**
      * @ORM\Column(type="array")
-     * @Assert\NotBlank(message="Ce champ ne peut pas être vide")
      */
     private $options = [];
 
@@ -46,6 +47,16 @@ class Delivery
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\OptionDelivery", mappedBy="delivery", orphanRemoval=true)
+     */
+    private $optionDeliveries;
+
+    public function __construct()
+    {
+        $this->optionDeliveries = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -123,5 +134,36 @@ class Delivery
         if (empty($this->createdAt)) {
             $this->createdAt = new \DateTime();
         }
+    }
+
+    /**
+     * @return Collection|OptionDelivery[]
+     */
+    public function getOptionDeliveries(): Collection
+    {
+        return $this->optionDeliveries;
+    }
+
+    public function addOptionDelivery(OptionDelivery $optionDelivery): self
+    {
+        if (!$this->optionDeliveries->contains($optionDelivery)) {
+            $this->optionDeliveries[] = $optionDelivery;
+            $optionDelivery->setDelivery($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOptionDelivery(OptionDelivery $optionDelivery): self
+    {
+        if ($this->optionDeliveries->contains($optionDelivery)) {
+            $this->optionDeliveries->removeElement($optionDelivery);
+            // set the owning side to null (unless already changed)
+            if ($optionDelivery->getDelivery() === $this) {
+                $optionDelivery->setDelivery(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -81,5 +81,61 @@
                 </div>
             </div>                
         </div>
+        <div class="row my-3">
+            <div class="card bg-success text-white col-md-6 col-xs-12">
+                <div class="cart-title">
+                        <h2 class="alert-heading my-3"><i class="fas fa-arrow-up"></i> Les meilleur avis</h2>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Note</th>
+                                <th>Commentaire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for rating in stats.bestRatings %}
+                            <tr>
+                                <td>{{ rating.lastname}}</td>
+                                <td>
+                                    <div class="my-auto badge badge-dark">{{ rating.rating }}</div>
+                                </td>
+                                <td>{{ rating.comment }}</td>
+                            </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card bg-danger text-white col-md-6 col-xs-12">
+                <div class="cart-title">
+                        <h2 class="alert-heading my-3"><i class="fas fa-arrow-down"></i> Les pires avis</h2>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Note</th>
+                                <th>Commentaire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for rating in stats.worstRatings %}
+                                {% if rating.rating < 3 %}
+                                
+                                    <tr>
+                                        <td>{{ rating.lastname}}</td>
+                                        <td>
+                                            <div class="my-auto badge badge-dark">{{ rating.rating }}</div>
+                                        </td>
+                                        <td>{{ rating.comment }}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
