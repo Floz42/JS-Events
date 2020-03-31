@@ -33,6 +33,8 @@ export default class Effects {
         )
     }
 
+    /** @description switch rating form and ratings on click previous button
+     */
     show_ratingForm() {
         let show = false;
         $('.rating_button').click(() => {
@@ -46,6 +48,17 @@ export default class Effects {
             }
         })
     };
+
+    /** @description To scroll to each anchor when user click on navbar links
+    */
+   scrollTo_anchor() {
+    $('.scrollTo').on('click', function() {
+        let anchor = $(this).attr('href');
+        console.log(anchor);
+        $('html, body').animate({ scrollTop: $(anchor).offset().top - 80 }, 1000 );
+        return false;
+    });
+}
     
 
 }

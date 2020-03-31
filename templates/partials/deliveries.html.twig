@@ -7,7 +7,7 @@
     {% for delivery in deliveries %}
         <div class="col-4 mb-3 mx-auto">
             <div class="card">
-                <img class="card-img-top" src="{{ delivery.picture }}" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset('/images/deliveries/' ~ delivery.picture) }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ delivery.title }}</h5>
                     <i class="fas fa-arrow-circle-down fa-2x col text-center my-3"></i>

@@ -22,6 +22,9 @@
             <a class="nav-link" href="{{ path('dashboard')}}">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ path('introduce_owner_show') }}">Présentation</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ path('news_show')}}">News</a>
           </li>
           <li class="nav-item">
@@ -33,11 +36,8 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ path('ratings_show') }}">Avis</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('introduce_owner_show') }}">Présentation</a>
-          </li>
           <li class="nav-item ml-5">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ path('accueil')}}">
               <i class="fas fa-undo"></i>
               Retour au site
             </a>

@@ -6,6 +6,7 @@ $(".logo_navbar").hover(function(){
 
 import Effects from './Effects.js';
 const effects = new Effects();
+effects.scrollTo_anchor();
 effects.accordion();
 $(window).on('scroll', function() {
     if ($(window).scrollTop() > 50) {
