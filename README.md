@@ -1,4 +1,4 @@
-#SITE DE LA SOCIÉTÉ JS EVENTS
+# SITE DE LA SOCIÉTÉ JS EVENTS
 
 Le client recherchait un site relativement simple afin de présenter son activité à de futurs prospects/clients avec les fonctionnalités suivantes : 
 

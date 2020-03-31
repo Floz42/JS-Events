@@ -196,7 +196,7 @@ nav div li a:hover {
 /***************** NEWS *********************/
 
 #all_news, #ratings {
-    height: 300px; 
+    height: 500px; 
     overflow: auto;
 }
 
@@ -219,4 +219,15 @@ nav div li a:hover {
 
 .gold_star {
     color: goldenrod; 
+}
+
+/***************** FOOTER *********************/
+
+.footer_link  {
+    color: #5cadd3;
+}
+
+.footer_link:hover  {
+    color: white;
+    text-decoration: none;
 }
